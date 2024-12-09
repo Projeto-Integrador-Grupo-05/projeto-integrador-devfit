@@ -42,6 +42,12 @@ public class ExercicioController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 	
+	@GetMapping("nome/{nome}")
+	public ResponseEntity <List<Exercicio>> findAllByNomeContainingIgnoreCase(@PathVariable String nome){
+		return ResponseEntity.ok(exercicioRepository.findAllByNomeContainingIgnoreCase(nome));
+		
+	}
+	
 	@PostMapping
 	public ResponseEntity <Exercicio> post(@Valid @RequestBody Exercicio exercicio){
 		return ResponseEntity.status(HttpStatus.CREATED)
