@@ -24,7 +24,7 @@ public class Treino {
 	private Long id;
 
 	@NotBlank
-	private String nome_treino;
+	private String nomeTreino;
 
 	@NotBlank
 	private int frequencia_semanal;
@@ -40,12 +40,12 @@ public class Treino {
 		this.id = id;
 	}
 
-	public String getNome_treino() {
-		return nome_treino;
+	public String getnomeTreino() {
+		return nomeTreino;
 	}
 
-	public void setNome_treino(String nome_treino) {
-		this.nome_treino = nome_treino;
+	public void setnomeTreino(String nomeTreino) {
+		this.nomeTreino = nomeTreino;
 	}
 
 	public int getFrequencia_semanal() {

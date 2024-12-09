@@ -24,7 +24,6 @@ import com.generation.devfit.repository.TreinoRepository;
 
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/treino")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -32,67 +31,50 @@ public class TreinoController {
 
 	@Autowired
 	private TreinoRepository treinoRepository;
-	
+
 //	 @Autowired
 // 	private ExercicioRepository exercicioRepository;
 
-	
 	@GetMapping
-	public ResponseEntity<List<Treino>> getAll(){
-		return ResponseEntity.ok(treinoRepository.findAll()); 
+	public ResponseEntity<List<Treino>> getAll() {
+		return ResponseEntity.ok(treinoRepository.findAll());
 	}
-	
-	/* 
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Treino> getById(@PathVariable Long id){
+	public ResponseEntity<Treino> getById(@PathVariable Long id) {
 		return treinoRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-	} 	*/
-	
-	/* 
-	
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Treino>> getBynome_treino(@PathVariable String nome_treino){
-		return ResponseEntity.ok(treinoRepository.findAllByNomeTreinoContainingIgnoreCase(nome_treino));
 	}
-	
-	*/
-	
-	
-/*	@PostMapping
-	public ResponseEntity<Treino> post(@Valid @RequestBody Treino treino){
-		if (exercicioRepository.existsById(treino.getExercicio().getId()))
-			return ResponseEntity.status(HttpStatus.CREATED).body(treinoRepository.save(treino));
-		
-		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercicio não existe!",null);
-		
-	} */
-	
-	/* 
+
+	@GetMapping("/nomeTreino/{nomeTreino}")
+	public ResponseEntity<List<Treino>> getBynomeTreino(@PathVariable String nomeTreino) {
+		return ResponseEntity.ok(treinoRepository.findAllByNomeTreinoContainingIgnoreCase(nomeTreino));
+	}
+
+	@PostMapping
+	public ResponseEntity<Treino> post(@Valid @RequestBody Treino treino) {
+		// if (exercicioRepository.existsById(treino.getExercicio().getId()))
+		return ResponseEntity.status(HttpStatus.CREATED).body(treinoRepository.save(treino));
+
+//		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercicio não existe!", null);
+
+	}
+
+	@PutMapping
+	public ResponseEntity<Treino> put(@Valid @RequestBody Treino treino) {
+	    return treinoRepository.findById(treino.getId())
+	            .map(resposta -> ResponseEntity.status(HttpStatus.OK).body(treinoRepository.save(treino)))
+	            .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+	}
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping(	"/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		Optional<Treino> treino = treinoRepository.findById(id);
-		
-		if(treino.isEmpty()) 
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-			
-		treinoRepository.deleteById(id);
-					
-	} 	 */
-	
-/* @PutMapping
-	public ResponseEntity<Treino>put(@Valid @RequestBody Treino treino){
-		if (treinoRepository.existsById(treino.getId())){
-			
-			if (exercicioRepository.existsById(treino.getExercicio().getId()))
-				return ResponseEntity.status(HttpStatus.OK).body(treinoRepository.save(treino));
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercicio não existe!",null);
-	
-			}
-		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
-	} */
+		if (treino.isEmpty())
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		treinoRepository.deleteById(id);
+
+	}
 }
