@@ -104,5 +104,4 @@ public class Usuario {
 		this.nivel_fitness = nivel_fitness;
 	}
 	
-	
 }
