@@ -87,4 +87,10 @@ public class UsuarioController {
 		
 		usuarioRepository.delete(usuario.get());
 	}
+	
+	@GetMapping("/imc/{id}")
+	public ResponseEntity <Double> calcularImc(@PathVariable Long id){
+		return ResponseEntity.ok(usuarioService.calcularImc(id));
+	}
+	
 }

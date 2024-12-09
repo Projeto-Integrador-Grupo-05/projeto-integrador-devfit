@@ -20,24 +20,23 @@ public class Usuario {
 
 	@NotBlank(message = "O Atributo Nome é Obrigatório!")
 	private String nome;
-	
-	@NotBlank (message = "O Atributo E-mail é Obrigatório!")
+
+	@NotBlank(message = "O Atributo E-mail é Obrigatório!")
 	@Email
 	private String email;
-	
-	@NotBlank (message = "O Atributo Senha é Obrigatório!")
+
+	@NotBlank(message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
 	private String senha;
-	
-	@NotNull (message = "O Atributo Altura é Obrigatório!")
+
+	@NotNull(message = "O Atributo Altura é Obrigatório!")
 	private Double altura;
-	
-	@NotNull (message = "O Atributo Peso é Obrigatório!")
+
+	@NotNull(message = "O Atributo Peso é Obrigatório!")
 	private Double peso;
-	
-	
+
 	private String objetivo;
-	
+
 	private String nivel_fitness;
 
 	public Long getId() {
@@ -103,5 +102,5 @@ public class Usuario {
 	public void setNivel_fitness(String nivel_fitness) {
 		this.nivel_fitness = nivel_fitness;
 	}
-	
+
 }
