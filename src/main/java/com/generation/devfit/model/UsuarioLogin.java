@@ -1,13 +1,10 @@
 package com.generation.devfit.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class UsuarioLogin {
 
 	private Long id;
 	private String nome;
 	private String email;
-	@JsonIgnore
 	private String senha;
 	private Double altura;
 	private Double peso;
