@@ -2,9 +2,9 @@
 
 ### Documentação 📊
 
-- [DER](docs/DER.mdj)
-
 - [Apresentação](docs/Apresentação.pdf)
+
+- [DER](docs/DER.mdj)
 
 - [Escopo do Projeto](docs/Escopo.docx)
 
