@@ -41,6 +41,9 @@ public class Usuario {
 	
 	private String nivelFitness;
 	
+	@NotBlank(message = "O tipo de usuário é obrigatório")
+	private String tipo;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("usuarios")
 	private Treino treino;
@@ -115,6 +118,14 @@ public class Usuario {
 
 	public void setTreino(Treino treino) {
 		this.treino = treino;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	
