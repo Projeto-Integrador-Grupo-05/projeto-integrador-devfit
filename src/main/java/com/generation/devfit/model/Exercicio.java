@@ -1,9 +1,11 @@
 package com.generation.devfit.model;
  
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -33,6 +35,9 @@ public class Exercicio {
 	@Size(min = 5, max = 100, message = "A descrição deve conter no mínimo 05 e no máximo 100 caracteres")
 	private String descricao;
 	
+	@ManyToOne
+	@JsonIgnoreProperties("exercicios")
+	private Treino treino;
 	
 		
 	public Long getId() {
@@ -71,9 +76,13 @@ public class Exercicio {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	public Treino getTreino() {
+		return treino;
+	}
+	public void setTreino(Treino treino) {
+		this.treino = treino;
+	}
 	
-	
- 
 }
  
  

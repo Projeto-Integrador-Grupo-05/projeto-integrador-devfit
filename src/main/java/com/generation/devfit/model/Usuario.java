@@ -1,9 +1,11 @@
 package com.generation.devfit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -20,24 +22,28 @@ public class Usuario {
 
 	@NotBlank(message = "O Atributo Nome é Obrigatório!")
 	private String nome;
-
-	@NotBlank(message = "O Atributo E-mail é Obrigatório!")
+	
+	@NotBlank (message = "O Atributo E-mail é Obrigatório!")
 	@Email
 	private String email;
-
-	@NotBlank(message = "O Atributo Senha é Obrigatório!")
+	
+	@NotBlank (message = "O Atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
 	private String senha;
-
-	@NotNull(message = "O Atributo Altura é Obrigatório!")
+	
+	@NotNull (message = "O Atributo Altura é Obrigatório!")
 	private Double altura;
-
-	@NotNull(message = "O Atributo Peso é Obrigatório!")
+	
+	@NotNull (message = "O Atributo Peso é Obrigatório!")
 	private Double peso;
-
+	
 	private String objetivo;
-
+	
 	private String nivel_fitness;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("usuarios")
+	private Treino treino;
 
 	public Long getId() {
 		return id;
@@ -103,4 +109,13 @@ public class Usuario {
 		this.nivel_fitness = nivel_fitness;
 	}
 
+	public Treino getTreino() {
+		return treino;
+	}
+
+	public void setTreino(Treino treino) {
+		this.treino = treino;
+	}
+	
+	
 }

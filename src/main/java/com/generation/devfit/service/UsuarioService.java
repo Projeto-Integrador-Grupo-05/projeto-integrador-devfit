@@ -64,23 +64,18 @@ public class UsuarioService {
 
 	public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLogin) {
 
-		// Gera o Objeto de autenticação
 		var credenciais = new UsernamePasswordAuthenticationToken(usuarioLogin.get().getEmail(),
 				usuarioLogin.get().getSenha());
 
-		// Autentica o Usuario
+
 		Authentication authentication = authenticationManager.authenticate(credenciais);
 
-		// Se a autenticação foi efetuada com sucesso
 		if (authentication.isAuthenticated()) {
 
-			// Busca os dados do usuário
 			Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioLogin.get().getEmail());
 
-			// Se o usuário foi encontrado
 			if (usuario.isPresent()) {
-
-				// Preenche o Objeto usuarioLogin com os dados encontrados
+				
 				usuarioLogin.get().setId(usuario.get().getId());
 				usuarioLogin.get().setNome(usuario.get().getNome());
 				usuarioLogin.get().setEmail(usuario.get().getEmail());
@@ -113,15 +108,13 @@ public class UsuarioService {
 		return "Bearer " + jwtService.generateToken(usuario);
 	}
 	
-	
 	public Double calcularImc(Long id) {
 		 Optional <Usuario> usuario = usuarioRepository.findById(id);
 		 if(usuario.isPresent()) {
 			 return (usuario.get().getPeso() / (usuario.get().getAltura() * usuario.get().getAltura()));
 		 }
 		 
-		 throw new ResponseStatusException(HttpStatus.NOT_FOUND);				 
-		
+		 throw new ResponseStatusException(HttpStatus.NOT_FOUND);				 	
 	}
 	
 }
