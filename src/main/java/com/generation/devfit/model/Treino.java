@@ -24,7 +24,7 @@ public class Treino {
 	@NotBlank
 	private String nomeTreino;
 	
-	private int frequencia_semanal;
+	private int frequenciaSemanal;
 
 	@NotBlank
 	private String descricao;
@@ -46,12 +46,12 @@ public class Treino {
 		this.id = id;
 	}
 
-	public int getFrequencia_semanal() {
-		return frequencia_semanal;
+	public int getFrequenciaSemanal() {
+		return frequenciaSemanal;
 	}
 
-	public void setFrequencia_semanal(int frequencia_semanal) {
-		this.frequencia_semanal = frequencia_semanal;
+	public void setFrequenciaSemanal(int frequencia_semanal) {
+		this.frequenciaSemanal = frequencia_semanal;
 	}
 
 	public String getDescricao() {

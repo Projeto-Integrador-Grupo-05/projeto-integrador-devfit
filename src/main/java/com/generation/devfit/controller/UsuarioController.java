@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.generation.devfit.model.IMC;
 import com.generation.devfit.model.Usuario;
 import com.generation.devfit.model.UsuarioLogin;
 import com.generation.devfit.repository.UsuarioRepository;
@@ -89,7 +90,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/imc/{id}")
-	public ResponseEntity <Double> calcularImc(@PathVariable Long id){
+	public ResponseEntity <IMC> calcularImc(@PathVariable Long id){
 		return ResponseEntity.ok(usuarioService.calcularImc(id));
 	}
 	

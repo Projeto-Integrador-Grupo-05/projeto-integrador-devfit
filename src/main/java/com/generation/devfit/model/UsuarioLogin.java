@@ -9,7 +9,7 @@ public class UsuarioLogin {
 	private Double altura;
 	private Double peso;
 	private String objetivo;
-	private String nivel_fitness;
+	private String nivelFitness;
 	private String token;
 	
 	public Long getId() {
@@ -54,11 +54,11 @@ public class UsuarioLogin {
 	public void setObjetivo(String objetivo) {
 		this.objetivo = objetivo;
 	}
-	public String getNivel_fitness() {
-		return nivel_fitness;
+	public String getNivelFitness() {
+		return nivelFitness;
 	}
-	public void setNivel_fitness(String nivel_fitness) {
-		this.nivel_fitness = nivel_fitness;
+	public void setNivelFitness(String nivel_fitness) {
+		this.nivelFitness = nivel_fitness;
 	}
 	public String getToken() {
 		return token;

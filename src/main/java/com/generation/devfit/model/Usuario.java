@@ -39,7 +39,7 @@ public class Usuario {
 	
 	private String objetivo;
 	
-	private String nivel_fitness;
+	private String nivelFitness;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("usuarios")
@@ -101,12 +101,12 @@ public class Usuario {
 		this.objetivo = objetivo;
 	}
 
-	public String getNivel_fitness() {
-		return nivel_fitness;
+	public String getNivelFitness() {
+		return nivelFitness;
 	}
 
-	public void setNivel_fitness(String nivel_fitness) {
-		this.nivel_fitness = nivel_fitness;
+	public void setNivelFitness(String nivel_fitness) {
+		this.nivelFitness = nivel_fitness;
 	}
 
 	public Treino getTreino() {
