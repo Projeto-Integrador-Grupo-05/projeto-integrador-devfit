@@ -2,11 +2,11 @@
 
 ### Documentação 📊
 
-- [Apresentação](docs/Apresentação.pdf)
+- [Apresentação](https://github.com/Projeto-Integrador-Grupo-05/projeto-integrador-devfit/blob/main/docs/Apresenta%C3%A7%C3%A3o.pdf)
 
-- [DER](docs/DER.mdj)
+- [DER](https://github.com/Projeto-Integrador-Grupo-05/projeto-integrador-devfit/blob/main/docs/DER.mdj)
 
-- [Escopo do Projeto](docs/Escopo.docx)
+- [Escopo do Projeto](https://github.com/Projeto-Integrador-Grupo-05/projeto-integrador-devfit/blob/main/docs/Escopo.docx)
 
 ### Descrição 🎓
 
