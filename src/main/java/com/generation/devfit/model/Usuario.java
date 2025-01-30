@@ -1,11 +1,14 @@
 package com.generation.devfit.model;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -44,9 +47,9 @@ public class Usuario {
 	@NotBlank(message = "O tipo de usuário é obrigatório")
 	private String tipo;
 	
-	@ManyToOne
-	@JsonIgnoreProperties("usuarios")
-	private Treino treino;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("usuario")
+	private List<Treino> treinos;
 
 	public Long getId() {
 		return id;
@@ -112,14 +115,6 @@ public class Usuario {
 		this.nivelFitness = nivel_fitness;
 	}
 
-	public Treino getTreino() {
-		return treino;
-	}
-
-	public void setTreino(Treino treino) {
-		this.treino = treino;
-	}
-
 	public String getTipo() {
 		return tipo;
 	}
@@ -127,6 +122,12 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
-	
+
+	public List<Treino> getTreinos() {
+		return treinos;
+	}
+
+	public void setTreinos(List<Treino> treinos) {
+		this.treinos = treinos;
+	}
 }

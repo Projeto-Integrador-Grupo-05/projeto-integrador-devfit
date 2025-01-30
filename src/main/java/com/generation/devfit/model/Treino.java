@@ -8,6 +8,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -28,10 +30,11 @@ public class Treino {
 
 	@NotBlank
 	private String descricao;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "treino", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("treino")
-	private List<Usuario> usuarios;
+	 
+	@ManyToOne
+	@JsonIgnoreProperties("treinos")
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "treino", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("treino")
@@ -70,13 +73,6 @@ public class Treino {
 		this.nomeTreino = nomeTreino;
 	}
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
 
 	public List<Exercicio> getExercicios() {
 		return exercicios;
@@ -85,5 +81,13 @@ public class Treino {
 	public void setExercicios(List<Exercicio> exercicios) {
 		this.exercicios = exercicios;
 	}
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 }
